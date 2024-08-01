@@ -3,49 +3,43 @@ using namespace std;
 
 class BankAccount {
 private:
-    int accountNumber;
-    int balance;
+    
+    int accn = 123456;
+    int bal = 1000;
 
 public:
-    // Constructor to initialize account number and balance
-    BankAccount(int accNum, int initialBalance) {
-        accountNumber = accNum;
-        balance = initialBalance;
-    }
 
-    // Function to deposit money
-    void deposit(int amount) {
-        if (amount > 0) {
-            balance += amount;
-            cout << "Deposited: " << amount << endl;
+    void deposit(int amt) {
+        if (amt > 0) {
+            bal += amt;
+            cout << "Deposited: " << amt << endl;
         } else {
             cout << "Invalid deposit amount" << endl;
         }
     }
 
-    // Function to withdraw money
-    void withdraw(int amount) {
-        if (amount > 0 && amount <= balance) {
-            balance -= amount;
-            cout << "Withdrew: " << amount << endl;
+    void withdraw(int amt) {
+        if (amt > 0 && amt <= bal) {
+            bal -= amt;
+            cout << "Withdrew: " << amt << endl;
         } else {
             cout << "Invalid withdraw amount or insufficient balance" << endl;
         }
     }
 
     // Function to display account details
-    void display() const {
-        cout << "Account Number: " << accountNumber << endl;
-        cout << "Balance: " << balance << endl;
+    void display() {
+        cout << "Account Number: " << accn << endl;
+        cout << "Balance: " << bal << endl;
     }
 };
 
 int main() {
-    // Create a BankAccount object
-    BankAccount account(123456, 1000);
+    
+    BankAccount account;
 
     int choice;
-    int amount;
+    int amt;
 
     while (true) {
         // Display menu options
@@ -60,13 +54,13 @@ int main() {
         switch (choice) {
             case 1:
                 cout << "Enter the amount to deposit: ";
-                cin >> amount;
-                account.deposit(amount);
+                cin >> amt;
+                account.deposit(amt);
                 break;
             case 2:
                 cout << "Enter the amount to withdraw: ";
-                cin >> amount;
-                account.withdraw(amount);
+                cin >> amt;
+                account.withdraw(amt);
                 break;
             case 3:
                 account.display();
